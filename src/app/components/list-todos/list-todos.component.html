@@ -1,0 +1,24 @@
+<div class="bg-slate-200 min-h-screen">
+  <div class="max-w-screen-sm mx-auto px-6 pt-8 pb-20">
+    <h1 class="text-3xl font-semibold text-center">Todo App</h1>
+    <app-input-todo />
+    <ul>
+      <app-todo *ngFor="let todo of todos" [todo]="todo"> </app-todo>
+    </ul>
+    <div
+      *ngIf="todos.length > 0"
+      class="mt-4 flex justify-between items-center"
+    >
+      <span class="font-semibold text-gray-600"
+        >You have {{ pendingTodos.length }} pending
+        {{ todos.length > 1 ? "tasks" : "task" }}</span
+      >
+      <button
+        class="px-3 py-1 bg-red-500 hover:bg-red-400 text-white font-semibold rounded-md"
+        (click)="onDeleteAllTodos()"
+      >
+        Clear all
+      </button>
+    </div>
+  </div>
+</div>
